@@ -5,5 +5,37 @@ before_script:
   - gem update --system
   - gem update bundler
 rvm:
+  - 2.0
+  - 2.1
+  - 2.2
   - 2.2.3
   - 2.3.0
+gemfile:
+  - gemfiles/middleman_3.1.gemfile
+  - gemfiles/middleman_3.2.gemfile
+  - gemfiles/middleman_3.3.gemfile
+  - gemfiles/middleman_3.4.gemfile
+  - gemfiles/middleman_3_stable.gemfile
+  - gemfiles/middleman_4.0.gemfile
+  - gemfiles/middleman_4.1.gemfile
+  - gemfiles/middleman_master.gemfile
+matrix:
+  exclude:
+    - rvm: 2.0
+      gemfile: gemfiles/middleman_4.0.gemfile
+    - rvm: 2.0
+      gemfile: gemfiles/middleman_4.1.gemfile
+    - rvm: 2.0
+      gemfile: gemfiles/middleman_master.gemfile
+    - rvm: 2.1
+      gemfile: gemfiles/middleman_4.0.gemfile
+    - rvm: 2.1
+      gemfile: gemfiles/middleman_4.1.gemfile
+    - rvm: 2.1
+      gemfile: gemfiles/middleman_master.gemfile
+    - rvm: 2.2
+      gemfile: gemfiles/middleman_4.0.gemfile
+    - rvm: 2.2
+      gemfile: gemfiles/middleman_4.1.gemfile
+    - rvm: 2.2
+      gemfile: gemfiles/middleman_master.gemfile

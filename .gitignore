@@ -1,4 +1,5 @@
 Gemfile.lock
+gemfiles/*.gemfile.lock
 coverage
 .ruby-version
 *.sublime-*
