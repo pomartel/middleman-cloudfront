@@ -98,7 +98,7 @@ module Middleman
         protected
 
         def configuration_usage
-          raise Error, <<-TEXT
+          raise StandardError, <<-TEXT
 ERROR: You need to activate the cloudfront extension in config.rb.
 
 The example configuration is:
