@@ -12,6 +12,7 @@ module Middleman
       option :distribution_id, nil, 'Distribution id'
       option :filter, /.*/, 'Filter files to be invalidated'
       option :after_build, false, 'Invalidate after build'
+      option :build_dir, 'build/', 'Build directory'
 
       def initialize(app, options_hash={}, &block)
         super
