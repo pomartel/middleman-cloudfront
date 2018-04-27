@@ -76,7 +76,8 @@ module Middleman
           # CloudFront limits the amount of files which can be invalidated by one request to 1000.
           # If there are more than 1000 files to invalidate, do so sequentially and wait until each validation is ready.
           # If there are max 1000 files, create the invalidation and return immediately.
-          files = normalize_files(files || list_files(options.filter))
+          build_dir = options.build_dir || 'build/'
+          files = normalize_files(files || list_files(options.filter, build_dir))
           return if files.empty?
 
           if files.count <= INVALIDATION_LIMIT
@@ -112,8 +113,8 @@ end
           TEXT
         end
 
-        def list_files(filter)
-          Dir.chdir('build/') do
+        def list_files(filter, build_dir)
+          Dir.chdir(build_dir) do
             Dir.glob('**/*', File::FNM_DOTMATCH).tap do |files|
               # Remove directories
               files.reject! { |f| File.directory?(f) }
